@@ -14,124 +14,146 @@ Zadania:
 
 void Zad1()
 {
-	const int rozmiar = 5;
-	int liczby[rozmiar];
-	float suma = 0;
+	const int size = 5;
+	int numbers[size];
+	float amount = 0;
 
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
 		cout << "Podaj " << i << " liczbe:\n";
-		cin >> liczby[i];
-		suma += liczby[i];
+		cin >> numbers[i];
+		amount += numbers[i];
 	}
-	suma = suma / rozmiar;
-	cout << suma;
+	amount = amount / size;
+	cout << amount;
 }
 
 void Zad2()
 {
-	int liczbywieksze = 0;
-	const int rozmiar = 5;
-	int liczby[rozmiar];
-	float suma = 0;
+	int bignumbers = 0;
+	const int size = 5;
+	int numbers[size];
+	float amount = 0;
 
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
 		cout << "Podaj " << i << " liczbe:\n";
-		cin >> liczby[i];
-		suma += liczby[i];
+		cin >> numbers[i];
+		amount += numbers[i];
 	}
-	suma = suma / rozmiar;
-	cout << suma<<endl;
+	amount = amount / size;
+	cout << amount << endl;
 
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
-		if (liczby[i] > suma)
+		if (numbers[i] > amount)
 		{
-			cout << liczby[i] << endl;
-			liczbywieksze++;
+			cout << numbers[i] << endl;
+			bignumbers++;
 		}
 	}
-	cout << liczbywieksze;
+	cout << bignumbers;
 }
 
 void Zad3()
 {
-	const int rozmiar = 5;
-	int liczby[rozmiar];
-	int liczbytyl[rozmiar];
+	const int size = 5;
+	int numbers[size];
+	int numbersback[size];
 
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
 		cout << "Podaj " << i << " liczbe:\n";
-		cin >> liczby[i];
+		cin >> numbers[i];
 	}
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
-		liczbytyl[i] = liczby[rozmiar - 1 - i];
+		numbersback[i] = numbers[size - 1 - i];
 	}
 
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
-		cout << liczbytyl[i];
+		cout << numbersback[i];
 	}
-	
+
 }
 
 
 void Zad4()
 {
-	const int rozmiar = 5;
-	int liczby[rozmiar];
-	const int rozmiar2 = 101;
-	int liczniki[rozmiar2];
+	const int size = 5;
+	int numbers[size];
+	const int size2 = 101;
+	int counter[size2];
 
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
 		cout << "Podaj " << i << " liczbe:\n";
-		cin >> liczby[i];
+		cin >> numbers[i];
 	}
-	for (int i = 0; i < rozmiar2; i++)
+	for (int i = 0; i < size2; i++)
 	{
-		liczniki[i] = 0;
+		counter[i] = 0;
 	}
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
-		liczniki[liczby[i]]++;
+		counter[numbers[i]]++;
 	}
-	for (int i = 0; i < rozmiar2; i++)
+	for (int i = 0; i < size2; i++)
 	{
-		cout << i << "=" << liczniki[i] << endl;
+		cout << i << "=" << counter[i] << endl;
 	}
 }
 
 void Zad6()
 {
-	const int rozmiar = 5;
-	int liczby[rozmiar];
-	int par[rozmiar];
-	int niepar[rozmiar];
+	const int size = 5;
+	int numbers[size];
+	int pair[size];
+	int notpair[size];
+	int counterpair = 0;
+	int counternotpair = 0;
 
-	for (int i = 0; i < rozmiar; i++)
+
+	for (int i = 0; i < size; i++)
 	{
 		cout << "Podaj " << i << " liczbe:\n";
-		cin >> liczby[i];
+		cin >> numbers[i];
 	}
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
-		if (liczby[i] % 2 == 0)
+		pair[i] = 0;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		notpair[i] = 0;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		if (numbers[i] % 2 == 0)
 		{
-			par[i] = liczby[i];
+			pair[counterpair] = numbers[i];
+			counterpair++;
 		}
 		else
-			niepar[i] = liczby[i];
+		{
+		notpair[counternotpair] = numbers[i];
+		counternotpair++;
+		}
+}
+	for (int i = 0; i < counterpair; i++)
+	{
+		cout << " parzyste " << pair[i];
+	}
+	for (int i = 0; i < counternotpair; i++)
+	{
+		cout << " nie parzyste " << notpair[i];
 	}
 }
 
 int main()
 {
-	Zad4();
-
+	Zad3();
 }
 
 
