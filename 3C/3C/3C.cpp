@@ -153,7 +153,7 @@ void Zad6()
 
 int main()
 {
-	Zad3();
+	Zad6();
 }
 
 
