@@ -1,48 +1,40 @@
 namespace arkusz_inf_04_2023
 {
-    public partial class Form1 : Form
+   public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
         }
 
-        Random random = new Random();
-        string duzelitery = "QWERTYUIOPASDFGHJKLZXCVBNM";
-        string malelitery = "qwertyuiopasdfghjklzxcvbnm";
-        string znakispecjalne = "!@#$%^&*()-_=+";
-        string liczby = "0123456789";
         string haslo = "";
+        string duzelitery = "QWERTYUIOPASDFGHJKLZXCwVBNM";
+        string malelitery = "qwertyuiopasdfghjklzxcvbnm";
+        string znakispecjalne = "!@#$%^&*()_+-=";
+        string cyfry = "1234567890";
 
-        
-        string RobHaslo(int dlugosc)
-        {
-            string _haslo = "";
-            while (_haslo. Length < dlugosc)
-            {
-                if (checkBox1.Checked)
-            {
-                _haslo + duze [los.Next(0, duze.Length)];
-            }        
-            if(_haslo.Length == dlugosc) return _haslo;
-            if (checkBox2.Checked)
-            {
-             _haslo += cyfry [los.Next(0, cyfry.Length)];
-            if (_haslo.Length == dlugosc) return _haslo;
-            }
-            if (checkBox3.Checked)
-            {
-                        _haslo += specjalne [los.Next(0, specjalne.Length)];
+        Random random = new Random();
 
-            }
-        if (_haslo.Length == dlugosc) return _haslo;
-    }
-return _haslo;
-}
-        
+        int ile = Convert.ToInt32() 
+
         private void genhaslo_button_Click(object sender, EventArgs e)
         {
-
+            while (haslo < ile)
+            {
+                if (litery_checkBox.Checked)
+                {
+                    haslo += duzelitery[random.Next(0, duzelitery.Length)];
+                }
+                if (cyfry_checkBox.Checked)
+                {
+                    haslo += cyfry[random.Next(0, cyfry.Length)];
+                }
+                if (znaki_specjalne_checkBox.Checked)
+                {
+                    haslo += znakispecjalne[random.Next(0, znakispecjalne.Length)];
+                }
+                haslo += malelitery[random.Next(0, malelitery.Length)];
+            }
         }
     }
 }
