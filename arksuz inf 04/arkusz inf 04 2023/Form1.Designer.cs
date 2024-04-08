@@ -199,6 +199,7 @@
             zatwierdz_button.TabIndex = 6;
             zatwierdz_button.Text = "Zatwierdź";
             zatwierdz_button.UseVisualStyleBackColor = false;
+            zatwierdz_button.Click += zatwierdz_button_Click;
             // 
             // Form1
             // 
