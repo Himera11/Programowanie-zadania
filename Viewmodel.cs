@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -72,7 +72,7 @@ namespace egzamin
             get { return throwCommand; }
             set { throwCommand = value; }
         }
-        private string[] DiceImages =
+        private string[] diceImages =
         {
             "k1.jpg",
             "k2.jpg",
@@ -84,18 +84,44 @@ namespace egzamin
         
         public Viewmodel()
         {
-            ThrowCommand = new Command(Throw);
-            ResetCommand = new Command(Reset);
+            ThrowCommand = new Command(ThrowDice);
+            ResetCommand = new Command(ResetGame);
+            ResetCommand.Execute(this);
+            //ResetGame();
+            /*
             Dice1 = "question.jpg";
             Dice2 = "question.jpg";
             Dice3 = "question.jpg";
             Dice4 = "question.jpg";
-            Dice5 = "question.jpg";
+            Dice5 = "question.jpg";*/
         }
         int resultAllGame = 0;
-        public void Throw()
+        public void ThrowDice()
         {
             Random random = new Random();
+
+            int [] diceValues = new int[5]
+            {
+                random.Next(1,7),
+                random.Next(1,7),
+                random.Next(1,7),
+                random.Next(1,7),
+                random.Next(1,7)
+            };
+
+            Dice1 = diceImages[diceValues[0] - 1];
+            Dice2 = diceImages[diceValues[1] - 1];
+            Dice3 = diceImages[diceValues[2] - 1];
+            Dice4 = diceImages[diceValues[3] - 1];
+            Dice5 = diceImages[diceValues[4] - 1];  
+
+            var duplicates = diceValues.GroupBy(x => x).Where(g => g.Count() > 1).SelectMany(g =>g);
+            int total = duplicates.Sum();
+
+            resultAllGame = resultAllGame + total;
+            ResultShow = $"Wynik tego losowania {total}";
+            ResultShowAllGame = $"Wynik całej gry {resultAllGame}";
+            /*
             Dice1 = DiceImages[random.Next(0,5)];
             Dice2 = DiceImages[random.Next(0, 5)];
             Dice3 = DiceImages[random.Next(0, 5)];
@@ -108,11 +134,13 @@ namespace egzamin
             result += Array.IndexOf(DiceImages, Dice3);
             result += Array.IndexOf(DiceImages, Dice4);
             result += Array.IndexOf(DiceImages, Dice5);
+
             resultAllGame = resultAllGame + result;
             ResultShow = $"Wynik tego losowania {result}";
             ResultShowAllGame = $"Wynik całej gry {resultAllGame}";
+            */
         }
-        public void Reset()
+        public void ResetGame()
         {
             Dice1 = "question.jpg";
             Dice2 = "question.jpg";
